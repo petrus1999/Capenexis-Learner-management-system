@@ -23,7 +23,7 @@ namespace CapenexisLearners22.Migrations
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
             modelBuilder.Entity("CapenexisLearners22.Models.Facilitator", b =>
-                {
+            {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
@@ -45,10 +45,10 @@ namespace CapenexisLearners22.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Facilitator");
-                });
+            });
 
             modelBuilder.Entity("CapenexisLearners22.Models.Learner", b =>
-                {
+            {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
@@ -73,35 +73,9 @@ namespace CapenexisLearners22.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Learner");
-                });
-
-            modelBuilder.Entity("CapenexisLearners22.Models.LevelFiveLearner", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("Course")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("FirstName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("NationalIdentityNumber")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
-
-                    b.Property<string>("SurName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("LevelFiveLearner");
-                });
+            });
+            
+            
 #pragma warning restore 612, 618
         }
     }

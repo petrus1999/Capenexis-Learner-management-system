@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CapenexisLearners22.Data;
 using CapenexisLearners22.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CapenexisLearners22.Pages.Learners
 {
@@ -21,12 +22,27 @@ namespace CapenexisLearners22.Pages.Learners
 
         public IList<Learner> Learner { get;set; } = default!;
 
+
+
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
+
+        public SelectList? Course { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? LearnerName { get; set; }
+
         public async Task OnGetAsync()
         {
-            if (_context.Learner != null)
+            var learners = from m in _context.Learner
+                               select m;
+            if (!string.IsNullOrEmpty(SearchString))
             {
-                Learner = await _context.Learner.ToListAsync();
+                learners = learners.Where(s => s.Course.Contains(SearchString));
             }
+
+            Learner= await learners.ToListAsync();
         }
+    
     }
 }

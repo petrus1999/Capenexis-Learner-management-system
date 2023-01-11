@@ -42,22 +42,7 @@ namespace CapenexisLearners22.Migrations
                     table.PrimaryKey("PK_Learner", x => x.Id);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "LevelFiveLearner",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    SurName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    FirstName = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    NationalIdentityNumber = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Course = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Price = table.Column<decimal>(type: "decimal(18,2)", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_LevelFiveLearner", x => x.Id);
-                });
+           
         }
 
         /// <inheritdoc />
@@ -69,8 +54,7 @@ namespace CapenexisLearners22.Migrations
             migrationBuilder.DropTable(
                 name: "Learner");
 
-            migrationBuilder.DropTable(
-                name: "LevelFiveLearner");
+           
         }
     }
 }

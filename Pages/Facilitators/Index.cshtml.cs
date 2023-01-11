@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using CapenexisLearners22.Data;
 using CapenexisLearners22.Models;
+using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace CapenexisLearners22.Pages.Facilitators
 {
@@ -19,14 +20,27 @@ namespace CapenexisLearners22.Pages.Facilitators
             _context = context;
         }
 
-        public IList<Facilitator> Facilitator { get;set; } = default!;
+        public IList<Facilitator> Facilitator { get; set; } = default!;
 
-        public async Task OnGetAsync()
-        {
-            if (_context.Facilitator != null)
+
+        [BindProperty(SupportsGet = true)]
+        public string? SearchString { get; set; }
+
+        public SelectList? FirstName { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public string? FacilitatorName { get; set; }
+
+            public async Task OnGetAsync()
             {
-                Facilitator = await _context.Facilitator.ToListAsync();
+                var facilitators = from m in _context.Facilitator
+                             select m;
+                if (!string.IsNullOrEmpty(SearchString))
+                {
+                    facilitators = facilitators.Where(s => s.FirstName.Contains(SearchString));
+                }
+
+                Facilitator = await facilitators.ToListAsync();
             }
         }
     }
-}
