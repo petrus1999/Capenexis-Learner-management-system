@@ -1,0 +1,60 @@
+﻿@page
+@model CapenexisLearners22.Pages.Learners.IndexModel
+
+@{
+    ViewData["Title"] = "Capenexis Level 4 Learners Details";
+}
+
+<h1>Capenexis Level 4 Learner Details</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].SurName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].NationalIdentityNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].Course)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Learner[0].Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Learner) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SurName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NationalIdentityNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Course)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

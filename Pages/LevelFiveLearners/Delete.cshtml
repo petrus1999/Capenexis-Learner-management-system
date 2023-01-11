@@ -1,0 +1,52 @@
+﻿@page
+@model CapenexisLearners22.Pages.LevelFiveLearners.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>LevelFiveLearner</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LevelFiveLearner.SurName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LevelFiveLearner.SurName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LevelFiveLearner.FirstName)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LevelFiveLearner.FirstName)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LevelFiveLearner.NationalIdentityNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LevelFiveLearner.NationalIdentityNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LevelFiveLearner.Course)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LevelFiveLearner.Course)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LevelFiveLearner.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LevelFiveLearner.Price)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="LevelFiveLearner.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
