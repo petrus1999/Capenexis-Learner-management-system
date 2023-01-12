@@ -18,7 +18,8 @@ namespace CapenexisLearners22.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     SurName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    NationalIdentityNumber = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    NationalIdentityNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    NumberofLearners = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
