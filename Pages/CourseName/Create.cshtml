@@ -1,0 +1,49 @@
+﻿@page
+@model CapenexisLearners22.Pages.CourseName.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Courses</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Courses.Lecture" class="control-label"></label>
+                <input asp-for="Courses.Lecture" class="form-control" />
+                <span asp-validation-for="Courses.Lecture" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.CourseName" class="control-label"></label>
+                <input asp-for="Courses.CourseName" class="form-control" />
+                <span asp-validation-for="Courses.CourseName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.Duration" class="control-label"></label>
+                <input asp-for="Courses.Duration" class="form-control" />
+                <span asp-validation-for="Courses.Duration" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Courses.Price" class="control-label"></label>
+                <input asp-for="Courses.Price" class="form-control" />
+                <span asp-validation-for="Courses.Price" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
