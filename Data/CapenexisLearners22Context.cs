@@ -18,6 +18,8 @@ namespace CapenexisLearners22.Data
 
         public DbSet<CapenexisLearners22.Models.Learner> Learner { get; set; } = default!;
 
+        public DbSet<CapenexisLearners22.Models.Courses> Course { get; set; } = default!;
+
         
     }
 }

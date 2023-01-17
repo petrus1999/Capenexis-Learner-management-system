@@ -28,9 +28,18 @@ namespace CapenexisLearners22.Pages.Learners
         public string? SearchString { get; set; }
 
         public SelectList? Course { get; set; }
+        
 
         [BindProperty(SupportsGet = true)]
         public string? LearnerName { get; set; }
+
+      
+
+        
+
+        
+
+       
 
         public async Task OnGetAsync()
         {
@@ -38,10 +47,13 @@ namespace CapenexisLearners22.Pages.Learners
                                select m;
             if (!string.IsNullOrEmpty(SearchString))
             {
-                learners = learners.Where(s => s.Course.Contains(SearchString));
+                learners = learners.Where(predicate: s => s.Course.Contains(SearchString));
             }
 
             Learner= await learners.ToListAsync();
+
+
+           
         }
     
     }
